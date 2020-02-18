@@ -1,14 +1,15 @@
-splash = require "Splash"
-splash:startSplashScreen("example.png", "oof", 500, 500, 5)
+splash = require "splash"
+splash:startSplashScreen("example.png", "oof", 500, 500, 5, {imagePos = {10, 10}},
+                            function()
+                                love.window.setMode(1000, 500, {borderless = false})
+                            end)
 
-image = love.graphics.newImage("example.png")
-love.graphics.draw(image)
 function love.load()
 end
 
 
 function love.draw()
-    love.graphics.print("OOF")
+    love.graphics.print("hello world!")
     splash:update()
 end
 
