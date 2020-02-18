@@ -1,3 +1,7 @@
+-- Stan O
+-- stan.xyz
+-- copyright: pls don't steal kthxbye
+
 local Splash = {
     debug = true,
     errorF = "\nSPLASH SCREEN LIBRARY ERROR",
