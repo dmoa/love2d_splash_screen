@@ -62,8 +62,8 @@ function Splash:startSplashScreen(img, text, width, height, delay, flags, _funct
 end
 
 function Splash:update()
-    love.graphics.clear()
     if not self.finished then
+        love.graphics.clear()
 
         self.timer = self.timer - love.timer.getDelta()
 
