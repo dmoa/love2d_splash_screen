@@ -14,7 +14,7 @@ local Splash = {
 
 function Splash:startSplashScreen(img, text, width, height, delay, flags, _function)
     -- error handling
-    if not img then 
+    if not img then
         error("image/path to image not given"..self.errorF, 2)
     elseif tostring(text) ~= text then
         error("text parameter not supplied with string"..self.errorF, 2)
@@ -50,7 +50,10 @@ function Splash:startSplashScreen(img, text, width, height, delay, flags, _funct
     -- setting specific positions of text and images if "flags" is defined
     self.imagePos = (flags and flags.imagePos) and flags.imagePos or {0, 0}
     self.textPos = (flags and flags.textPos) and flags.textPos or {0, 0}
-    self.textStyle = (flags and flags.textStyle) and flags.textStyle or love.graphics.newFont(25)
+    self.textStyle = (flags and flags.textStyle) and love.graphics.newFont(flags.textStyle[1], flags.textStyle[2]) or love.graphics.newFont(25)
+
+    -- defining text
+    self.text = love.graphics.newText(self.textStyle, text)
 
     -- error checking
     if #self.textPos ~= 2 then
@@ -68,6 +71,7 @@ function Splash:update()
         self.timer = self.timer - love.timer.getDelta()
 
         love.graphics.draw(self.image, self.imagePos[1], self.imagePos[2])
+        love.graphics.draw(self.text, self.textPos[1], self.textPos[2])
 
         if self.timer < 0 then
             self.finished = true
