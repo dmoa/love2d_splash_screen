@@ -1,5 +1,5 @@
 splash = require "splash"
-splash:startSplashScreen("example.png", "oof", 500, 500, 5, {imagePos = {10, 10}},
+splash:startSplashScreen("example.png", "example", 500, 500, 5, {imagePos = {10, 10}, textPos = {50, 50}, textStyle = {"font.ttf", 25}},
                             function()
                                 love.window.setMode(1000, 500, {borderless = false})
                             end)
